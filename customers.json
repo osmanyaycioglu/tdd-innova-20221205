@@ -1,0 +1,36 @@
+[
+  {
+    "customerId": 1,
+    "name": "osman",
+    "surname": "yayci",
+    "discount": 0.2,
+    "customerDetails": {
+      "gender": "ERKEK",
+      "status": "ACTIVE",
+      "group": "GROUP1"
+    }
+  },
+  {
+    "customerId": 2,
+    "name": "mehmet",
+    "surname": "yayci",
+    "discount": 0.1,
+    "customerDetails": {
+      "gender": "ERKEK",
+      "status": "ACTIVE",
+      "group": "GROUP2"
+    }
+  },
+  {
+    "customerId": 3,
+    "name": "ayşe",
+    "surname": "yayci",
+    "discount": 0.4,
+    "customerDetails": {
+      "gender": "KADIN",
+      "status": "ACTIVE",
+      "group": "GROUP2"
+    }
+  }
+
+]

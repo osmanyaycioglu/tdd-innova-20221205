@@ -41,7 +41,6 @@ class OrderProcessMockitoTest {
                                    .withSurname("yayci")
                                    .withDiscount(0.8D)
                                    .build());
-        ;
         Mockito.when(customerDao.findCustomer(2L))
                .thenReturn(Customer.builder()
                                    .withCustomerId(2L)

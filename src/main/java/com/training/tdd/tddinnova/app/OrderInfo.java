@@ -12,5 +12,6 @@ public class OrderInfo {
     private String orderUid;
     private Double calculatedPrice;
     private int orderStatus;
+    private Order order;
 
 }
