@@ -10,24 +10,38 @@ public class StringUtil {
         if (str == null) {
             return 0;
         }
-        if ("null".equalsIgnoreCase(str.trim())){
+        if ("null".equalsIgnoreCase(str.trim())) {
             return 0;
         }
-        return str.trim().length();
+        return str.trim()
+                  .length();
+    }
+
+    public String concat(EConcatType concatTypeParam,
+                         String... stringsParam) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < stringsParam.length; i++) {
+            stringBuilder.append(stringsParam[i]);
+            if (i < stringsParam.length - 1) {
+                stringBuilder.append(concatTypeParam.getDivider());
+            }
+        }
+        return stringBuilder.toString();
     }
 
     public int getNameRuleIndex(String str) {
         if (str == null) {
             return 0;
-        } else if (str.contains("ali")){
+        } else if (str.contains("ali")) {
             return 1;
-        } else if (str.contains("osman")){
-            if (str.substring(6).contains("a")){
+        } else if (str.contains("osman")) {
+            if (str.substring(6)
+                   .contains("a")) {
                 return 2;
             } else {
                 return 3;
             }
-        } else if (str.contains("mehmet")){
+        } else if (str.contains("mehmet")) {
             throw new IllegalArgumentException("mehmet olmaz");
         } else {
             return 4;
@@ -35,8 +49,8 @@ public class StringUtil {
     }
 
 
-
-    public int divideString(String str1,String str2){
+    public int divideString(String str1,
+                            String str2) {
         if (str2 == null) {
             return getCharCount(str1);
         }

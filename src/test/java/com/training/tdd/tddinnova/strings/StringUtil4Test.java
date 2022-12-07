@@ -2,6 +2,7 @@ package com.training.tdd.tddinnova.strings;
 
 import com.training.tdd.tddinnova.MyDisplaynameGenerator;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
@@ -116,5 +117,34 @@ public class StringUtil4Test {
                                              .setResult(Integer.parseInt(sa[1])));
     }
 
+    @ParameterizedTest(name = "{index} -- {displayName} --= {arguments} ")
+    @ArgumentsSource(Test6ArgumentSource.class)
+    void test6(TestData currentTestData,
+               String testName) {
+        Assertions.assertEquals(currentTestData.getResult(),
+                                stringUtil.getCharCount(currentTestData.getTestStr()),
+                                testName
+                                + " --> "
+                                + currentTestData.getTestStr()
+                                + " : "
+                                + currentTestData.getResult()
+                                + " olmalıydı.");
 
+    }
+
+    static class Test6ArgumentSource implements ArgumentsProvider {
+
+        @Override
+        public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
+            return Stream.of(Arguments.arguments(new TestData().setTestStr("osman")
+                                                               .setResult(5),
+                                                 "Normal osman testi"),
+                             Arguments.arguments(new TestData().setTestStr("o s m a n")
+                                                               .setResult(9),
+                                                 "Boşluklu osman testi"),
+                             Arguments.arguments(new TestData().setTestStr("12 osman")
+                                                               .setResult(8),
+                                                 "Rakam boşluk osman testi"));
+        }
+    }
 }
